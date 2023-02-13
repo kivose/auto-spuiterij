@@ -97,7 +97,7 @@ public class UIButton :
     public Color clickedHexagonColor1;
     public Color clickedHexagonColor2;
 
-    public float clickedRegistrationTime = 0.4f;
+    public float clickedRegistrationTime = 0;
 
     public Button.ButtonClickedEvent onClick;
 
@@ -113,17 +113,6 @@ public class UIButton :
         {
             //Determine if the button is selected;
             Selected = selectedButton == this;
-
-            //Determine if the button is clicked;
-
-            if (Clicked)
-            {
-                debug.clickedTimer -= Time.deltaTime;
-                if (debug.clickedTimer <= 0)
-                {
-                    Clicked = false;
-                }
-            }
 
             //Determine the graphics of the button
 
@@ -179,6 +168,12 @@ public class UIButton :
         UpdateHexagonsColor();
     }
 
+    void OnDisable()
+    {
+        Hovered = false;
+        Selected = false;
+        Clicked = false;
+    }
     public void UpdateHexagonsColor()
     {
         for (int i = 0; i < hexagons.Length; i++)
@@ -242,6 +237,7 @@ public class UIButton :
     public void OnPointerUp(PointerEventData data)
     {
         Debug.Log("Pointer Up");
+        Clicked = false;
     }
 
     /// <summary>
@@ -251,6 +247,7 @@ public class UIButton :
     public void OnPointerDown(PointerEventData data)
     {
         Debug.Log("Pointer down");
+        Clicked = true;
     }
 
     /// <summary>
