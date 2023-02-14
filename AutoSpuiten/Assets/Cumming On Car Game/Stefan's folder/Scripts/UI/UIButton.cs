@@ -120,16 +120,7 @@ public class UIButton :
             Color targetColor2 = defaultHexagonColor2;
 
             Vector3 targetScale = debug.defaultScale;
-
-            //selected
-
-            if (Selected)
-            {
-                targetColor1 = selectedHexagonColor1;
-                targetColor2 = selectedHexagonColor2;
-            }
-
-
+            
             //hovered
             if (Hovered)
             {
@@ -171,7 +162,6 @@ public class UIButton :
     void OnDisable()
     {
         Hovered = false;
-        Selected = false;
         Clicked = false;
     }
     public void UpdateHexagonsColor()
