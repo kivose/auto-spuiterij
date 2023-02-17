@@ -1,0 +1,280 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Base UI Button
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: cc9049db562877542baac66ad4c91a3e,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.hovered
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.selected
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.clicked
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.clickedTimer
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.hexagonTargetColor1.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.hexagonTargetColor1.g
+    value: 0.99029756
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.hexagonTargetColor1.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.hexagonTargetColor1.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.hexagonTargetColor2.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.hexagonTargetColor2.g
+    value: 0.26712957
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.hexagonTargetColor2.b
+    value: 0.3301887
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.hexagonTargetColor2.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.targetScale.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.targetScale.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.targetScale.z
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.defaultScale.x
+    value: 0.66860646
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.defaultScale.y
+    value: 0.66860646
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: debug.defaultScale.z
+    value: 0.66860646
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hexagons.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: mainText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: backgroundText
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: boxImage
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cornersImage
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: text
+    value: Button
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: defaultHexagonColor1.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: defaultHexagonColor1.g
+    value: 0.8509804
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: defaultHexagonColor1.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: defaultHexagonColor1.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: defaultHexagonColor2.r
+    value: 0.42352942
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: defaultHexagonColor2.g
+    value: 0.36078432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: defaultHexagonColor2.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: defaultHexagonColor2.a
+    value: 0.4627451
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorLerpSpeed
+    value: 0.4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: scalesmoothTime
+    value: 0.1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredHexagonColor1.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredHexagonColor1.g
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredHexagonColor1.b
+    value: 0.017884493
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredHexagonColor1.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredHexagonColor2.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredHexagonColor2.g
+    value: 0.31132078
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredHexagonColor2.b
+    value: 0.04107704
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredHexagonColor2.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredScale.x
+    value: 0.9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredScale.y
+    value: 0.9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: hoveredScale.z
+    value: 0.9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: selectedHexagonColor1.r
+    value: 0.78679246
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: selectedHexagonColor1.g
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: selectedHexagonColor1.b
+    value: 0.99832326
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: selectedHexagonColor1.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: selectedHexagonColor2.r
+    value: 0.5176471
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: selectedHexagonColor2.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: selectedHexagonColor2.b
+    value: 0.37159553
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: selectedHexagonColor2.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: clickedHexagonColor1.r
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: clickedHexagonColor1.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: clickedHexagonColor1.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: clickedHexagonColor1.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: clickedHexagonColor2.r
+    value: 0.254717
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: clickedHexagonColor2.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: clickedHexagonColor2.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: clickedHexagonColor2.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: clickedRegistrationTime
+    value: 0.1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: onClick.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []

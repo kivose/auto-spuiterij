@@ -145,6 +145,8 @@ public class UIButton :
                 targetColor2 = clickedHexagonColor2;
 
                 onClick.Invoke();
+
+                Clicked = false;
             }
 
             debug.hexagonTargetColor1 = targetColor1;
@@ -156,8 +158,12 @@ public class UIButton :
             transform.localScale = Vector3.SmoothDamp(transform.localScale, debug.targetScale, ref scaleVelocity, scalesmoothTime);
         }
 
-        backgroundText.text = text;
-        mainText.text = text;
+        if(backgroundText)
+            backgroundText.text = text;
+
+        if(mainText)
+            mainText.text = text;
+
         transform.name = text;
 
     }
@@ -189,11 +195,16 @@ public class UIButton :
             }
         }
 
-        mainText.color = debug.hexagonTargetColor1;
-        backgroundText.color = debug.hexagonTargetColor2;
+        if(mainText)
+            mainText.color = debug.hexagonTargetColor1;
 
-        boxImage.color = debug.hexagonTargetColor2;
-        cornersImage.color = debug.hexagonTargetColor1;
+        if (backgroundText)
+            backgroundText.color = debug.hexagonTargetColor2;
+
+        if (boxImage)
+            boxImage.color = debug.hexagonTargetColor2;
+        if (cornersImage)
+            cornersImage.color = debug.hexagonTargetColor1;
     }
 
     #region Input Registration
@@ -204,11 +215,14 @@ public class UIButton :
     /// <param name="data"></param>
     public void OnPointerClick(PointerEventData data)
     {
-        Debug.Log("Click");
-        selectedButton = this;
+        if (data.button == PointerEventData.InputButton.Left)
+        {
+            Debug.Log("Click");
+            selectedButton = this;
 
-        debug.clicked = true;
-        debug.clickedTimer = clickedRegistrationTime;
+            debug.clicked = true;
+            debug.clickedTimer = clickedRegistrationTime;
+        }
         
     }
 
@@ -236,8 +250,11 @@ public class UIButton :
     /// <param name="data"></param>
     public void OnPointerUp(PointerEventData data)
     {
-        Debug.Log("Pointer Up");
-        Clicked = false;
+        if (data.button == PointerEventData.InputButton.Left)
+        {
+            Debug.Log("Pointer Up");
+            Clicked = true;
+        }
     }
 
     /// <summary>
@@ -247,7 +264,6 @@ public class UIButton :
     public void OnPointerDown(PointerEventData data)
     {
         Debug.Log("Pointer down");
-        Clicked = true;
     }
 
     /// <summary>
