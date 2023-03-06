@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.017091414, g: 0.016760997, b: 0.015400042, a: 1}
+  m_IndirectSpecularColor: {r: 0.0012004315, g: 0.0017961225, b: 0.0031084726, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1337,6 +1337,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234160101}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &253561657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6771047467084617866, guid: af2e08e8f2509a54da860980c4b5cd36,
+    type: 3}
+  m_PrefabInstance: {fileID: 9462263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &253561661
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253561657}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17463583, y: 0.2816136, z: 0.05746055}
+  m_Center: {x: 0.43730554, y: 1.527389, z: 1.7562398}
 --- !u!1001 &262310881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10503,6 +10522,26 @@ Transform:
   m_Father: {fileID: 1263672783}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1506332365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1573536211684018758, guid: af2e08e8f2509a54da860980c4b5cd36,
+    type: 3}
+  m_PrefabInstance: {fileID: 9462263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1506332369
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506332365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8987731520270458752, guid: 6544da24c23350e46b9a116401640a02, type: 3}
 --- !u!1 &1514297844
 GameObject:
   m_ObjectHideFlags: 0
@@ -12511,7 +12550,7 @@ Transform:
   m_GameObject: {fileID: 2025644230}
   m_LocalRotation: {x: -0.51628506, y: 0.51628524, z: -0.48316783, w: -0.48316467}
   m_LocalPosition: {x: 8.273, y: 2.43, z: 15.16}
-  m_LocalScale: {x: 0.22409531, y: 0.16956365, z: 0.16956365}
+  m_LocalScale: {x: 0.22409531, y: 0.16956365, z: 0.15119143}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1108324647}
