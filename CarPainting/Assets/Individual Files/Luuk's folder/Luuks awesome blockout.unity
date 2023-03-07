@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 138699604}
   - component: {fileID: 138699605}
   m_Layer: 0
-  m_Name: painting room light (6)
+  m_Name: tunnel light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2066,7 +2066,7 @@ GameObject:
   - component: {fileID: 440518101}
   - component: {fileID: 440518102}
   m_Layer: 0
-  m_Name: painting room light (7)
+  m_Name: tunnel light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3397,7 +3397,7 @@ GameObject:
   - component: {fileID: 927690826}
   - component: {fileID: 927690827}
   m_Layer: 0
-  m_Name: painting room light (4)
+  m_Name: tunnel light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10657,7 +10657,7 @@ GameObject:
   - component: {fileID: 1547219530}
   - component: {fileID: 1547219531}
   m_Layer: 0
-  m_Name: painting room light (5)
+  m_Name: tunnel light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11218,7 +11218,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631414420}
-  m_LocalRotation: {x: -0.6830122, y: 0.18301016, z: -0.6830145, w: -0.18301076}
+  m_LocalRotation: {x: -0.6830127, y: 0.18301274, z: -0.6830127, w: -0.18301274}
   m_LocalPosition: {x: 20.150002, y: 3.74, z: 15.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12960,7 +12960,7 @@ GameObject:
   - component: {fileID: 2122036112}
   - component: {fileID: 2122036113}
   m_Layer: 0
-  m_Name: Area Light
+  m_Name: showroom lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13054,7 +13054,7 @@ GameObject:
   - component: {fileID: 2138126105}
   - component: {fileID: 2138126106}
   m_Layer: 0
-  m_Name: painting room light (8)
+  m_Name: screen light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
