@@ -23,6 +23,7 @@ public class FinishedOrdersManager : MonoBehaviour
                 else if (value >= finishedOrders.Count) value = 0;
 
                 value = Mathf.Clamp(value, 0, Mathf.Max(finishedOrders.Count - 1, 0));
+
                 m_SelectedOrderIndex = value;
                 selectedOrder = finishedOrders[m_SelectedOrderIndex];
 
@@ -32,7 +33,7 @@ public class FinishedOrdersManager : MonoBehaviour
     }
 
     [Header("References")]
-    public TextMeshProUGUI personName, description, orderAmountText;
+    public TextMeshProUGUI personName, description, orderAmountText,noOrdersText;
 
 
     public GameObject orderPrefab;
@@ -41,13 +42,22 @@ public class FinishedOrdersManager : MonoBehaviour
 
     List<GameObject> activeCarParts = new();
 
-    private void Start()
-    {
-        SelectedOrderIndex = 0;
-    }
 
+    void EnableFinishedOrdersText(bool value)
+    {
+        noOrdersText.gameObject.SetActive(value);
+    }
     void OnSelectedOrderChanged()
     {
+        if(finishedOrders.Count == 0)
+        {
+            EnableFinishedOrdersText(true);
+            return;
+        }
+
+        EnableFinishedOrdersText(false);
+
+
         orderAmountText.text = SelectedOrderIndex + 1 + " / " + finishedOrders.Count;
         personName.text = selectedOrder.personName;
         description.text = selectedOrder.description;
@@ -73,6 +83,12 @@ public class FinishedOrdersManager : MonoBehaviour
 
     public void ScrollThroughOrders(bool add)
     {
+        if (finishedOrders.Count == 0)
+        {
+            EnableFinishedOrdersText(true);
+            return;
+        }
+
         if (add)
             SelectedOrderIndex++;
         else

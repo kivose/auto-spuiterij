@@ -14,7 +14,6 @@ public class HUDManager : MonoBehaviour
     }
     public async void OnMainMenuButtonClicked(int index)
     {
-        switchAnimation.Enable();
 
         for (int i = 0; i < mainMenuPages.Length; i++)
         {

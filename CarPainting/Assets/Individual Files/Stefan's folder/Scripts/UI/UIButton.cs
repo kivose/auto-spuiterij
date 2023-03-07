@@ -65,37 +65,27 @@ public class UIButton :
     public TextMeshProUGUI mainText, backgroundText;
 
     public Image boxImage, cornersImage;
-
-
+    
     [Space(k_SpaceSize)]
     [Header("Default")]
 
     [TextArea(5,15)]
     public string text;
 
-    public Color defaultHexagonColor1;
-    public Color defaultHexagonColor2;
-
-    public float colorLerpSpeed;
+    public UIButtonColorObject colorsModule;
 
     public float scalesmoothTime;
     Vector3 scaleVelocity;
 
     [Space(k_SpaceSize)]
     [Header("Hovered")]
-    public Color hoveredHexagonColor1;
-    public Color hoveredHexagonColor2;
     public Vector3 hoveredScale = Vector3.one;
 
     [Space(k_SpaceSize)]
     [Header("Selected")]
-    public Color selectedHexagonColor1;
-    public Color selectedHexagonColor2;
 
     [Space(k_SpaceSize)]
     [Header("Clicked")]
-    public Color clickedHexagonColor1;
-    public Color clickedHexagonColor2;
 
     public float clickedRegistrationTime = 0;
 
@@ -114,10 +104,11 @@ public class UIButton :
             //Determine if the button is selected;
             Selected = selectedButton == this;
 
+            
             //Determine the graphics of the button
 
-            Color targetColor1 = defaultHexagonColor1;
-            Color targetColor2 = defaultHexagonColor2;
+            Color targetColor1 = colorsModule.defaultColor1;
+            Color targetColor2 = colorsModule.defaultColor2;
 
             Vector3 targetScale = debug.defaultScale;
 
@@ -125,24 +116,24 @@ public class UIButton :
 
             if (Selected)
             {
-                targetColor1 = selectedHexagonColor1;
-                targetColor2 = selectedHexagonColor2;
+                targetColor1 = colorsModule.selectedColor1;
+                targetColor2 = colorsModule.selectedColor2;
             }
 
 
             //hovered
             if (Hovered)
             {
-                targetColor1 = hoveredHexagonColor1;
-                targetColor2 = hoveredHexagonColor2;
+                targetColor1 = colorsModule.hoveredColor1;
+                targetColor2 = colorsModule.hoveredColor2;
 
                 targetScale = hoveredScale;
             }
             //clicked
             if (Clicked)
             {
-                targetColor1 = clickedHexagonColor1;
-                targetColor2 = clickedHexagonColor2;
+                targetColor1 = colorsModule.clickedColor1;
+                targetColor2 = colorsModule.clickedColor2;
 
                 onClick.Invoke();
 
@@ -158,11 +149,15 @@ public class UIButton :
             transform.localScale = Vector3.SmoothDamp(transform.localScale, debug.targetScale, ref scaleVelocity, scalesmoothTime);
         }
 
-        if(backgroundText)
+        if (backgroundText)
+        {
             backgroundText.text = text;
+        }
 
-        if(mainText)
+        if (mainText)
+        {
             mainText.text = text;
+        }
 
         transform.name = text;
 
@@ -189,7 +184,7 @@ public class UIButton :
             hexData[i].currentTimer -= Time.fixedDeltaTime;
             if(hexData[i].currentTimer <= 0)
             {
-                hexData[i].maxTimer = colorLerpSpeed + Random.Range(-50f, 50f) / 500f;
+                hexData[i].maxTimer = colorsModule.colorLerpSpeed + Random.Range(-50f, 50f) / 500f;
                 hexData[i].currentTimer = hexData[i].maxTimer;
                 hexData[i].color = Color.Lerp(debug.hexagonTargetColor1, debug.hexagonTargetColor2, Random.Range(1f, 100f) / 100);
             }
@@ -274,6 +269,7 @@ public class UIButton :
     {
         Debug.Log("Pointer enter");
         debug.hovered = true;
+        print(data.ToString());
     }
 
     /// <summary>

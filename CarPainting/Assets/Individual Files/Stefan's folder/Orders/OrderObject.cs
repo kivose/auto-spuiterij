@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Order", menuName = "Order")]
 public class OrderObject : ScriptableObject
 {
+    public static OrderObject CurrentOrder;
+
     public string personName;
 
     [TextArea(5,15)]
@@ -19,4 +21,6 @@ public class OrderObject : ScriptableObject
         public CarPartObject carPart;
         public Color carPartColor;
     }
+
+    public static bool OrderSelected() => CurrentOrder != null;
 }

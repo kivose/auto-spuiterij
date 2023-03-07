@@ -41,9 +41,28 @@ public class OpenOrdersManager : MonoBehaviour
 
     List<GameObject> activeCarParts = new();
 
-    private void Start()
+    public GameObject selectOrderButton;
+
+    public GameObject selectedFilter;
+    private void OnEnable()
     {
         CurrentOrderIndex = 0;
+    }
+
+    public void ApplyCurrentOrder()
+    {
+        OrderObject.CurrentOrder = currentOrder;
+    }
+
+    public void CancelCurrentOrder()
+    {
+        OrderObject.CurrentOrder = null;
+    }
+
+    private void Update()
+    {
+        selectOrderButton.SetActive(!OrderObject.OrderSelected());
+        selectedFilter.SetActive(OrderObject.OrderSelected());
     }
 
     void OnCurrentOrderChanged()
