@@ -20,6 +20,7 @@ public class OrderObject : ScriptableObject
         public int amount;
         public CarPartObject carPart;
         public Color carPartColor;
+        public string carPartColorName;
     }
 
     public static bool OrderSelected() => CurrentOrder != null;

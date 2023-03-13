@@ -1,22 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class GrabbedObjectKinematic : MonoBehaviour
 {
-    private Rigidbody rb;
+    public GameObject rigidy;
+    public Rigidbody ridigy;
 
-    private void Start()
+    public void OnSelectExit(XRBaseInteractor interactor)
     {
-        rb = GetComponent<Rigidbody>();
+        ridigy.constraints = RigidbodyConstraints.None;
     }
 
-    private void DisableKinematic()
-    {
-        rb.isKinematic = false;
-    }
-
-    private void OnGrab(XRBaseInteractor interactor)
-    {
-        Invoke("DisableKinematic", 0.1f);
-    }
 }
