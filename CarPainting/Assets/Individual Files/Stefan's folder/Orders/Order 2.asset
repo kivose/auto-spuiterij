@@ -18,3 +18,4 @@ MonoBehaviour:
   - amount: 1
     carPart: {fileID: 11400000, guid: e5532516b84efae489c115d0cbfa745a, type: 2}
     carPartColor: {r: 0, g: 1, b: 0.2668004, a: 1}
+    carPartColorName: light green

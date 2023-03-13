@@ -135,7 +135,7 @@ public class UIButton :
                 targetColor1 = colorsModule.clickedColor1;
                 targetColor2 = colorsModule.clickedColor2;
 
-                onClick.Invoke();
+                onClick?.Invoke();
 
                 Clicked = false;
             }

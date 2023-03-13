@@ -18,16 +18,14 @@ public class OpenOrdersManager : MonoBehaviour
         }
         set
         {
-            if(value != m_currentOrderIndex)
-            {
-                if (value < 0) value = allOrders.Count -1;
-                else if (value >= allOrders.Count) value = 0;
+            if (value < 0) value = allOrders.Count -1;
+            else if (value >= allOrders.Count) value = 0;
 
-                m_currentOrderIndex = value;
-                currentOrder = allOrders[m_currentOrderIndex];
+            m_currentOrderIndex = value;
+            currentOrder = allOrders[m_currentOrderIndex];
 
-                OnCurrentOrderChanged();
-            }
+            OnCurrentOrderChanged();
+        
         }
     }
 
@@ -44,14 +42,19 @@ public class OpenOrdersManager : MonoBehaviour
     public GameObject selectOrderButton;
 
     public GameObject selectedFilter;
+
+    public CurrentOrderManager currentOrderManager;
     private void OnEnable()
     {
         CurrentOrderIndex = 0;
+        OnCurrentOrderChanged();
+        Update();
     }
 
     public void ApplyCurrentOrder()
     {
         OrderObject.CurrentOrder = currentOrder;
+        currentOrderManager.InitializeOrderItems();
     }
 
     public void CancelCurrentOrder()

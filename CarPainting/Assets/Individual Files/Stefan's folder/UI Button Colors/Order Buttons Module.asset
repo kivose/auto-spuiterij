@@ -19,5 +19,5 @@ MonoBehaviour:
   hoveredColor2: {r: 0, g: 0.30980393, b: 0.039215688, a: 0.5254902}
   selectedColor1: {r: 0.7882353, g: 1, b: 1, a: 0.5254902}
   selectedColor2: {r: 0.5176471, g: 0, b: 0.37254903, a: 0.5254902}
-  clickedColor1: {r: 1, g: 0, b: 0, a: 0.5176471}
-  clickedColor2: {r: 0.25490198, g: 0, b: 0, a: 0.5254902}
+  clickedColor1: {r: 0.5019608, g: 1, b: 0.98039216, a: 0.5176471}
+  clickedColor2: {r: 0, g: 0.59607846, b: 0.57254905, a: 0.5254902}
