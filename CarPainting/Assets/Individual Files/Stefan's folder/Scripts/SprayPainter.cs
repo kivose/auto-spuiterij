@@ -27,10 +27,10 @@ public class SprayPainter : BasePickUp
 
         if (true) //input detection
         {
-            if(Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, 100000f))
+            if(Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, 100000f, whatIsPaintable))
             {
                 print(hit.transform);
-                var material = hit.transform.GetComponent<MeshRenderer>().sharedMaterial;
+                var material = hit.transform.GetComponent<MeshRenderer>()?.sharedMaterial;
 
                 if(material != null)
                 {
