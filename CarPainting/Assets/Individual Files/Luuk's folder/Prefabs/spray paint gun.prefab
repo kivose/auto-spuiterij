@@ -208,10 +208,10 @@ GameObject:
   - component: {fileID: 3593439708722145855}
   - component: {fileID: 464343504746030490}
   - component: {fileID: 2419940142513213776}
+  - component: {fileID: 2061209085}
   - component: {fileID: 3073386927320521981}
   - component: {fileID: 4732913749184815600}
   - component: {fileID: 2061209087}
-  - component: {fileID: 2061209085}
   - component: {fileID: 2061209086}
   m_Layer: 0
   m_Name: spray paint gun
@@ -288,6 +288,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2061209085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221463624232398981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae98ad1b2a52bd54384173f63a94a663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickedUp: 0
+  whatIsPaintable:
+    serializedVersion: 2
+    m_Bits: 0
+  currentSprayColor: {r: 0, g: 0, b: 0, a: 0}
+  paintableObjects: []
 --- !u!114 &3073386927320521981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,24 +460,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11811378, y: 0.56885767, z: 0.4835594}
   m_Center: {x: -0.000000018626451, y: 0.18479306, z: -0.14942838}
---- !u!114 &2061209085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4221463624232398981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae98ad1b2a52bd54384173f63a94a663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickedUp: 0
-  whatIsPaintable:
-    serializedVersion: 2
-    m_Bits: 0
-  currentSprayColor: {r: 0, g: 0, b: 0, a: 0}
-  paintableObjects: []
 --- !u!114 &2061209086
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class BasePickUp : MonoBehaviour
     [Tooltip("Boolean that determinse if this gameObject is picked up")]
     public bool pickedUp;
 
-    private void Awake()
+    private void Start()
     {
         grab = GetComponent<XRGrabInteractable>();
         grab.selectEntered.AddListener(delegate { OnPickUp(); });
