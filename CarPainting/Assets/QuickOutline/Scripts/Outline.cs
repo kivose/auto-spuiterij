@@ -111,6 +111,9 @@ public class Outline : MonoBehaviour {
 
   void Awake() {
 
+        if (outlineWhenInteractable && interactable == null)
+            interactable = GetComponent<XRGrabInteractable>();
+
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
 
