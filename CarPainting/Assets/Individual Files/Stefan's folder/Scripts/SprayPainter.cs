@@ -167,6 +167,8 @@ public class SprayPainter : BasePickUp
         Renderer[] renderers = FindObjectsOfType<Renderer>();
         for (int i = 0; i < renderers.Length; i++)
         {
+            if (renderers[i].gameObject.layer != LayerMask.NameToLayer("Paintable")) continue;
+
             var materials = renderers[i].sharedMaterials;
             for (int j = 0; j < materials.Length; j++)
             {

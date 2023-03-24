@@ -77,6 +77,9 @@ public class UIButton :
     public float scalesmoothTime;
     Vector3 scaleVelocity;
 
+    public bool usePersonalizedColors;
+    public Color personalizedColor1, personalizedColor2;
+
     [Space(k_SpaceSize)]
     [Header("Hovered")]
     public Vector3 hoveredScale = Vector3.one;
@@ -138,6 +141,12 @@ public class UIButton :
                 onClick?.Invoke();
 
                 Clicked = false;
+            }
+
+            if (usePersonalizedColors)
+            {
+                targetColor1 = personalizedColor1;
+                targetColor2 = personalizedColor2;
             }
 
             debug.hexagonTargetColor1 = targetColor1;
