@@ -14,16 +14,19 @@ public class SprayPainter : BasePickUp
     Rigidbody rigidbody;
 
     public float progressSpeed = 1f;
+    public float paintDstTreshold;
     private void Start()
     {
         collider = gameObject.GetComponent<Collider> ();
         rigidbody = gameObject.GetComponent<Rigidbody>();
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
-        PaintableObject.ProgressSpeed = progressSpeed;
         if (pickedUp == false) return;
+        #region Old Method
+        /*PaintableObject.ProgressSpeed = progressSpeed;
+       
 
         if (true) //input detection
         {
@@ -54,7 +57,59 @@ public class SprayPainter : BasePickUp
             }
 
             
+        } */
+        #endregion
+
+        #region New Method
+
+        if (true)//input detection komt nog
+        {
+            if (Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, 100000f))
+            {
+                var colliders = Physics.OverlapSphere(hit.point, paintDstTreshold * 2, whatIsPaintable);
+                
+                foreach (MeshCollider collider in colliders)
+                {
+                    Mesh mesh = collider.GetComponent<MeshFilter>().sharedMesh;
+
+                    if (mesh)
+                    {
+                        var colors = mesh.colors;
+
+                        if (colors.Length != mesh.vertices.Length)
+                        {
+                            colors = new Color[mesh.vertices.Length];
+
+                            for (int i = 0; i < colors.Length; i++)
+                            {
+                                colors[i] = Color.white;
+                            }
+                        }
+
+                        var transform = collider.transform;
+
+                        var vertices = mesh.vertices;
+                        for (int i = 0; i < vertices.Length; i++)
+                        {
+                            Vector3 vertexWorldPos = transform.TransformPoint(vertices[i]);
+
+                            float dst = Vector3.Distance(vertexWorldPos, hit.point);
+
+                            if (dst <= paintDstTreshold)
+                            {
+                                float factor = Mathf.InverseLerp(0, paintDstTreshold, dst);
+                                colors[i] = Color.Lerp(colors[i], currentSprayColor, progressSpeed * factor * Time.fixedDeltaTime);
+                            }
+                        }
+
+                        mesh.colors = colors;
+                        print(vertices.Length);
+                    }
+                }
+                
+            }
         }
+        #endregion
     }
 
     public bool ContainsMaterial(Material material, out int paintableIndex)
@@ -151,33 +206,30 @@ public class SprayPainter : BasePickUp
         }
     }
 
-    #region Material Instantiation
+    #region Mesh Instantiation
     //Dictionary<Material, Material> dict = new Dictionary<Material, Material>();
 
-    Material GetMat(Material aMat)
+    Mesh GetMesh(Mesh aMat)
     {
-        Material mat;
+        Mesh mat;
         //if (!dict.TryGetValue(aMat, out mat))
-            /*dict.Add(aMat,*/ mat = (Material)Instantiate(aMat)/*)*/;
+            /*dict.Add(aMat,*/ mat = (Mesh)Instantiate(aMat)/*)*/;
         return mat;
     }
 
     void Awake()
     {
-        Renderer[] renderers = FindObjectsOfType<Renderer>();
-        for (int i = 0; i < renderers.Length; i++)
+        MeshFilter[] filters = FindObjectsOfType<MeshFilter>();
+        for (int i = 0; i < filters.Length; i++)
         {
-            if (renderers[i].gameObject.layer != LayerMask.NameToLayer("Paintable")) continue;
+            if (filters[i].gameObject.layer != LayerMask.NameToLayer("Paintable")) continue;
 
-            var materials = renderers[i].sharedMaterials;
-            for (int j = 0; j < materials.Length; j++)
-            {
-                if (materials[j].name.Contains("Outline")) continue;
+            var mesh = filters[i].sharedMesh;
 
-                materials[j] = GetMat(materials[j]);
-                materials[j].name = materials[j].name + renderers[i].transform.name;
-            }
-            renderers[i].sharedMaterials = materials;
+            mesh = GetMesh(mesh);
+            mesh.name = mesh.name + filters[i].transform.name;
+            
+            filters[i].sharedMesh = mesh;
         }
     }
     #endregion

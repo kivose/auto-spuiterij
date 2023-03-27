@@ -31,6 +31,7 @@ public class PaintDispenser : MonoBehaviour
 
     public Transform player;
     public Outline outline;
+    public SprayPainter painter;
     public float distanceTreshold;
     // Update is called once per frame
     void Update()
@@ -76,6 +77,13 @@ public class PaintDispenser : MonoBehaviour
         slider3ValueText.text = b.ToString();
 
         outline.OutlineColor = outcome;
+    }
+
+    public void Apply()
+    {
+        painter.currentSprayColor = outcome;
+
+        TryCreatePreset();
     }
 
     public void SetColor(Vector3Int rgb)
