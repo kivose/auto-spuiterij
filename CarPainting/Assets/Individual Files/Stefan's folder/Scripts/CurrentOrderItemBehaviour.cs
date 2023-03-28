@@ -5,7 +5,7 @@ using TMPro;
 
 public class CurrentOrderItemBehaviour : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI amountText, typeText, colorText;
+    [SerializeField] TextMeshProUGUI amountText, typeText, colorText, colorPercentage;
 
     [SerializeField] OrderObject.OrderCarParts carPart;
 
@@ -15,10 +15,10 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
     public void SetItem(OrderObject.OrderCarParts part)
     {
         carPart = part;
-        UpdateOrderItem();
+        UpdateOrderItem(0);
     }
 
-    public void UpdateOrderItem()
+    public void UpdateOrderItem(float colorPercentage)
     {
         completedObject.SetActive(completed);
 
@@ -26,5 +26,6 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
         typeText.text = carPart.carPart.carPartName;
         colorText.text = carPart.carPartColorName;
         colorText.color = carPart.carPartColor;
+        this.colorPercentage.text = colorPercentage.ToString();
     }
 }

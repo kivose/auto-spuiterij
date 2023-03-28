@@ -15,7 +15,7 @@ MonoBehaviour:
   personName: Dariel Opium Leeuw
   description: gemiddelde opium van die op teen x geilt
   orderProducts:
-  - amount: 2
+  - amount: 1
     carPart: {fileID: 11400000, guid: e5532516b84efae489c115d0cbfa745a, type: 2}
     carPartColor: {r: 0.047169805, g: 0.00952296, b: 0.00952296, a: 1}
     carPartColorName: Black

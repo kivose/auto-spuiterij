@@ -55,6 +55,7 @@ public class OpenOrdersManager : MonoBehaviour
     {
         OrderObject.CurrentOrder = currentOrder;
         currentOrderManager.InitializeOrderItems();
+        currentOrderManager.OnOrderChanged();
     }
 
     public void CancelCurrentOrder()

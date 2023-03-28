@@ -55,7 +55,10 @@ public class PaintDispenser : MonoBehaviour
     {
         if (!currentColorPresets.ContainsKey(m_outcome))
         {
-            presets.GetChild(presetsMade).GetChild(0).GetComponent<PaintDispenserPreset>().Initialize(m_outcome,outcome);
+            var preset = presets.GetChild(presetsMade).GetChild(0).GetComponent<PaintDispenserPreset>();
+            preset.Initialize(m_outcome,outcome);
+            currentColorPresets.Add(m_outcome,preset);
+
             presetsMade++;
         }
     }

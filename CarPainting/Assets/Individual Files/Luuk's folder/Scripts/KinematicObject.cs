@@ -1,31 +1,54 @@
 using UnityEngine;
 
-public class KinematicObject : MonoBehaviour
+public class KinematicObject : BasePickUp
 {
     public GameObject targetObject;
     public float distanceThreshold = 2f;
 
     private Rigidbody rb;
 
+    Vector3 startPos;
+    Quaternion startRot;
+
+    public Vector3 targetSnapEulerAngles;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        startPos = transform.position;
+        startRot = transform.rotation;
     }
 
-    private void FixedUpdate()
+    public void CheckSnap()
     {
-        // Check the distance between this object and the target object
-        float distance = Vector3.Distance(transform.position, targetObject.transform.position);
+        // Check if object can snap to base position
 
-        // If the distance is less than the threshold, set the object's isKinematic property to true
-        if (distance < distanceThreshold)
+        if (Vector3.Distance(transform.position, startPos) < distanceThreshold)
         {
+            transform.SetPositionAndRotation(startPos, startRot);
+
             rb.isKinematic = true;
         }
-        // Otherwise, set the object's isKinematic property to false
+        else if (targetObject != null && Vector3.Distance(transform.position, targetObject.transform.position) < distanceThreshold)
+        {
+            transform.SetPositionAndRotation(targetObject.transform.position,Quaternion.Euler(targetSnapEulerAngles));
+            rb.isKinematic = true;
+        }
         else
         {
             rb.isKinematic = false;
         }
     }
+
+    public override void OnPickUp()
+    {
+        base.OnPickUp();
+        GetComponent<Collider>().enabled = false;
+    }
+    public override void OnDrop()
+    {
+        base.OnDrop();
+        GetComponent<Collider>().enabled = true;
+    }
 }
+ 

@@ -25,8 +25,23 @@ public class CarPartObject : ScriptableObject
     [Header("Additional Data")]
     [Space(8)]
     [Tooltip("The prefab that belongs to this Car Part")]
-    public GameObject prefab;
+    public string gameObjectName;
 
+    [SerializeField]
+    private GameObject carPartGameObject;
+
+    public GameObject CarPartGameObject
+    {
+        get
+        {
+            if(carPartGameObject == null)
+            {
+                carPartGameObject = GameObject.Find(gameObjectName);
+            }
+
+            return carPartGameObject;
+        }
+    }
     [Tooltip("the UI Image used to display this Car Part")]
     public Sprite uiSprite;
 

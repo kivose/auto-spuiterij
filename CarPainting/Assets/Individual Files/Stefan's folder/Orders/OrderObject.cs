@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
 
 [CreateAssetMenu(fileName = "New Order", menuName = "Order")]
 public class OrderObject : ScriptableObject
@@ -24,4 +25,18 @@ public class OrderObject : ScriptableObject
     }
 
     public static bool OrderSelected() => CurrentOrder != null;
+
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.AppendFormat("Order for {0}:\n", personName);
+        sb.AppendFormat("{0}\n", description);
+
+        foreach (OrderCarParts order in orderProducts)
+        {
+            sb.AppendFormat("- {0}x {1} ({2} {3})\n", order.amount, order.carPart.name, order.carPartColorName, order.carPartColor);
+        }
+
+        return sb.ToString();
+    }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   personName: Heerhugowaard
   description: gemiddelde inwoner van doetinchem
   orderProducts:
-  - amount: 2
+  - amount: 1
     carPart: {fileID: 11400000, guid: e5532516b84efae489c115d0cbfa745a, type: 2}
     carPartColor: {r: 0.5377358, g: 0, b: 0, a: 1}
     carPartColorName: dark red
