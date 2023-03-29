@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9f6e72908d517489f8060ef12f725f, type: 3}
   m_Name: Door Right Side
   m_EditorClassIdentifier: 
-  carPartName: Door Right Side
+  carPartName: Right Door
   carPartDescription: 
   cost: 0
   sellPrice: 0

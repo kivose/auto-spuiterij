@@ -278,7 +278,6 @@ public class UIButton :
     {
         Debug.Log("Pointer enter");
         debug.hovered = true;
-        print(data.ToString());
     }
 
     /// <summary>

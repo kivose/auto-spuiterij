@@ -21,6 +21,8 @@ public class PaintDispenserPreset : MonoBehaviour
         button.personalizedColor2 = color - new Color(0.2f, 0.2f, 0.2f, 0f);
 
         initialized = true;
+
+        button.text = rgb.ToString();
     }
     public void SelectPreset()
     {

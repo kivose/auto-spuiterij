@@ -23,7 +23,7 @@ public class PaintDispenser : MonoBehaviour
     int maxPresets = 16;
     int presetsMade = 0;
     public Transform presets;
-    public Dictionary<Vector3Int, PaintDispenserPreset> currentColorPresets;
+    public Dictionary<Vector3Int, PaintDispenserPreset> currentColorPresets = new();
 
     public Transform machineObject;
 

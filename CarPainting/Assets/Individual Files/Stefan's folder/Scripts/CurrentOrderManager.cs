@@ -69,9 +69,12 @@ public class CurrentOrderManager : MonoBehaviour
         for (int i = 0; i < carObjects.Count; i++)
         {
             float colorPercentage = CalculateColorPercentage(carObjects[i].filter.sharedMesh.colors, OrderObject.CurrentOrder.orderProducts[i].carPartColor);
+            if(activeCurrentOrders[i].carObject == null)
+            {
+                activeCurrentOrders[i].carObject = carObjects[i].transform;
+                activeCurrentOrders[i].mesh = carObjects[i].filter.sharedMesh;
+            }
             activeCurrentOrders[i].UpdateOrderItem(colorPercentage);
-
-            print(colorPercentage);
         }
     }
 
@@ -113,11 +116,13 @@ public class CurrentOrderManager : MonoBehaviour
     public float CalculateColorPercentage(Color[] vertexColors, Color targetColor)
     {
         float total = 0;
+        int totalIterations = 0;
         for (int i = 0; i < vertexColors.Length; i+= colorCalculationIterations)
         {
             total += CompareColors(vertexColors[i], targetColor);
+            totalIterations = i;
         }
-        return total / vertexColors.Length;
+        return Mathf.Min(100,Mathf.Abs((total / totalIterations -1) * 1.05f));
     }
 
     public float CompareColors(Color color1, Color color2)

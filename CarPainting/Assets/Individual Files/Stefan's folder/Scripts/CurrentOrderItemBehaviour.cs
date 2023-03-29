@@ -12,12 +12,16 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
     [SerializeField] GameObject completedObject;
 
     public bool completed;
+
+    public Transform carObject { get; set; }
+    public Mesh mesh { get; set; }
     public void SetItem(OrderObject.OrderCarParts part)
     {
         carPart = part;
         UpdateOrderItem(0);
     }
 
+    public float paintDripTreshold = 60;
     public void UpdateOrderItem(float colorPercentage)
     {
         completedObject.SetActive(completed);
@@ -26,6 +30,15 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
         typeText.text = carPart.carPart.carPartName;
         colorText.text = carPart.carPartColorName;
         colorText.color = carPart.carPartColor;
-        this.colorPercentage.text = colorPercentage.ToString();
+        this.colorPercentage.text = colorPercentage.ToString("F");
+
+        if(colorPercentage > paintDripTreshold)
+        {
+            print("Drip start");
+            carObject.GetComponentInChildren<DripParticle>().Initialize(mesh);
+        }
+        
+        completed = colorPercentage >= 100;
+        completedObject.SetActive(completed);
     }
 }
