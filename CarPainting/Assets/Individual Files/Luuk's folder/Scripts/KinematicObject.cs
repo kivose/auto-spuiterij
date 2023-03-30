@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class KinematicObject : BasePickUp
 {
-    public GameObject targetObject;
+    public SnapObjects[] targetObjects;
     public float distanceThreshold = 2f;
 
     private Rigidbody rb;
@@ -11,6 +11,15 @@ public class KinematicObject : BasePickUp
     Quaternion startRot;
 
     public Vector3 targetSnapEulerAngles;
+
+    [System.Serializable]
+    public struct SnapObjects
+    {
+        public Transform transform;
+        public Vector3 snapEulerAngles;
+        public UnityEngine.Events.UnityEvent OnSnapEvent;
+        public bool kinematicAfterSnap;
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,23 +30,32 @@ public class KinematicObject : BasePickUp
 
     public void CheckSnap()
     {
-        // Check if object can snap to base position
+        // ==> Check if object can snap to base position
 
         if (Vector3.Distance(transform.position, startPos) < distanceThreshold)
         {
             transform.SetPositionAndRotation(startPos, startRot);
 
             rb.isKinematic = true;
+            return;
         }
-        else if (targetObject != null && Vector3.Distance(transform.position, targetObject.transform.position) < distanceThreshold)
+
+        // ==> Check if object can snap to snappable objects
+        for (int i = 0; i < targetObjects.Length; i++)
         {
-            transform.SetPositionAndRotation(targetObject.transform.position,Quaternion.Euler(targetSnapEulerAngles));
-            rb.isKinematic = true;
+            var target = targetObjects[i];
+            float dst = Vector3.Distance(target.transform.position, transform.position);
+
+            if(dst <= distanceThreshold)
+            {
+                transform.SetPositionAndRotation(target.transform.position, Quaternion.Euler(target.snapEulerAngles));
+                rb.isKinematic = target.kinematicAfterSnap;
+                target.OnSnapEvent?.Invoke();
+                return;
+            }
         }
-        else
-        {
-            rb.isKinematic = false;
-        }
+
+        rb.isKinematic = false;
     }
 
     public override void OnPickUp()
