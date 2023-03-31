@@ -20,14 +20,29 @@ public class Oven : MonoBehaviour
     public float CurrentTimer;
     public bool IsOn;
 
+    public bool IsOvenDoorOpen
+    {
+        get
+        {
+            return ovenAnimator.GetBool("Open");
+        }
+        set
+        {
+            ovenAnimator.SetBool("Open",value);
+        }
+    }
+
     public Transform pivot;
 
     public Transform currentObject;
+
+    public Animator ovenAnimator;
 
     public TextMeshProUGUI time, ovenStatusText;
 
     public OvenStatusData[] ovenStatuses;
 
+    [SerializeField]
     private OvenStatus m_ovenStatus;
 
     public OvenStatus CurrentOvenStatus
@@ -56,7 +71,7 @@ public class Oven : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentOvenStatus = OvenStatus.Unused;
+        OnOvenStatusChanged();
     }
 
     // Update is called once per frame
@@ -90,6 +105,12 @@ public class Oven : MonoBehaviour
         }
     }
 
+    public void OnOvenDoorInteract()
+    {
+        if (IsOn) return;
+
+        IsOvenDoorOpen = !IsOvenDoorOpen;
+    }
     void OnOvenStatusChanged()
     {
         for (int i = 0; i < ovenStatuses.Length; i++)
@@ -117,7 +138,7 @@ public class Oven : MonoBehaviour
             if (kinematic)
             {
                 float dst = Vector3.Distance(pivot.position,kinematic.transform.position);
-                if(dst < closestDst)
+                if(dst < closestDst && dst < 1)
                 {
                     closestDst = dst;
                     closest = kinematic;
@@ -141,7 +162,7 @@ public class Oven : MonoBehaviour
 
     public void TryStartOven()
     {
-        if(CurrentOvenStatus == OvenStatus.Loaded /* ==> && (Door is closed) */ )
+        if(CurrentOvenStatus == OvenStatus.Loaded && IsOvenDoorOpen == false )
         {
             StartOven();
         }

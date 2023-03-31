@@ -12,6 +12,7 @@ public class KinematicObject : BasePickUp
 
     public Vector3 targetSnapEulerAngles;
 
+    CurrentOrderManager com;
     [System.Serializable]
     public struct SnapObjects
     {
@@ -20,16 +21,21 @@ public class KinematicObject : BasePickUp
         public UnityEngine.Events.UnityEvent OnSnapEvent;
         public bool kinematicAfterSnap;
     }
-    private void Start()
+    protected override void Start()
     {
+        CurrentOrderManager = FindObjectOfType<CurrentOrderManager>();
+        base.Start();
         rb = GetComponent<Rigidbody>();
 
         startPos = transform.position;
         startRot = transform.rotation;
     }
 
-    public void CheckSnap()
+    public async void CheckSnap()
     {
+        await System.Threading.Tasks.Task.Delay(10);
+
+        OnDrop();
         // ==> Check if object can snap to base position
 
         if (Vector3.Distance(transform.position, startPos) < distanceThreshold)
@@ -48,10 +54,15 @@ public class KinematicObject : BasePickUp
 
             if(dst <= distanceThreshold)
             {
-                transform.SetPositionAndRotation(target.transform.position, Quaternion.Euler(target.snapEulerAngles));
-                rb.isKinematic = target.kinematicAfterSnap;
-                target.OnSnapEvent?.Invoke();
-                return;
+                if (target.transform.name == "Oven Pivot")
+                {
+                    var filter = target.transform.GetComponent<MeshFilter>();
+                    if()
+                    transform.SetPositionAndRotation(target.transform.position, Quaternion.Euler(target.snapEulerAngles));
+                    rb.isKinematic = target.kinematicAfterSnap;
+                    target.OnSnapEvent.Invoke();
+                    return;
+                }
             }
         }
 
@@ -61,12 +72,18 @@ public class KinematicObject : BasePickUp
     public override void OnPickUp()
     {
         base.OnPickUp();
-        GetComponent<Collider>().enabled = false;
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = false;
+        }
     }
     public override void OnDrop()
     {
         base.OnDrop();
-        GetComponent<Collider>().enabled = true;
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = true;    
+        }
     }
 }
  
