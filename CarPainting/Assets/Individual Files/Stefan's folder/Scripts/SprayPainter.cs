@@ -64,22 +64,33 @@ public class SprayPainter : BasePickUp
 
         if (true)//input detection komt nog
         {
+            // ==> Raycast vanuit de spray painter
             if (Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, 100000f))
             {
+                // ==> Overlap sphere gebruiken, als we op een hoek van een mesh sprayen, worden ook andere paintable meshes gepaint
                 var colliders = Physics.OverlapSphere(hit.point, paintDstTreshold * 2, whatIsPaintable);
                 
                 foreach (MeshCollider collider in colliders)
                 {
+                    KinematicObject kin = collider.GetComponent<KinematicObject>();
+
+                    if (kin)
+                    {
+                        if (kin.isSuccesfullyPainted) continue;
+                    }
+
                     Mesh mesh = collider.GetComponent<MeshFilter>().sharedMesh;
 
-                    if (mesh)
+                    if (mesh) // ==> kijk of er een mesh is
                     {
                         var colors = mesh.colors;
 
+                        // ==> checken of de meshColors array dezelfde length heeft als de vertices, zodat ze juist gepaint kunnen worden
                         if (colors.Length != mesh.vertices.Length)
                         {
                             colors = new Color[mesh.vertices.Length];
 
+                            // ==> Niet dezelfde length? De color array wordt gemaakt met een basiskleur
                             for (int i = 0; i < colors.Length; i++)
                             {
                                 colors[i] = Color.white;
@@ -89,21 +100,24 @@ public class SprayPainter : BasePickUp
                         var transform = collider.transform;
 
                         var vertices = mesh.vertices;
+
+                        // ==> Voor elke vertex kijken of die in de spray zone ligt van de spray gun
                         for (int i = 0; i < vertices.Length; i++)
                         {
+                            // ==> Convert vertex positie naar world pos
                             Vector3 vertexWorldPos = transform.TransformPoint(vertices[i]);
 
                             float dst = Vector3.Distance(vertexWorldPos, hit.point);
 
                             if (dst <= paintDstTreshold)
                             {
+                                // ==> de intensiteit van het sprayen wordt bepaalt op basis van de spray zone
                                 float factor = Mathf.InverseLerp(0, paintDstTreshold, dst);
-                                colors[i] = Color.Lerp(colors[i], currentSprayColor, progressSpeed * factor * Time.fixedDeltaTime);
+                                colors[i] = Color.Lerp(colors[i], currentSprayColor, progressSpeed * factor * Time.fixedDeltaTime); // ==> lerpen gebruiken om het smooth te painter
                             }
                         }
 
                         mesh.colors = colors;
-                        print(vertices.Length);
                     }
                 }
                 
@@ -209,7 +223,7 @@ public class SprayPainter : BasePickUp
     #region Mesh Instantiation
     //Dictionary<Material, Material> dict = new Dictionary<Material, Material>();
 
-    Mesh GetMesh(Mesh aMat)
+    Mesh CloneMesh(Mesh aMat)
     {
         Mesh mat;
         //if (!dict.TryGetValue(aMat, out mat))
@@ -226,7 +240,7 @@ public class SprayPainter : BasePickUp
 
             var mesh = filters[i].sharedMesh;
 
-            mesh = GetMesh(mesh);
+            mesh = CloneMesh(mesh);
             mesh.name = mesh.name + filters[i].transform.name;
             
             filters[i].sharedMesh = mesh;

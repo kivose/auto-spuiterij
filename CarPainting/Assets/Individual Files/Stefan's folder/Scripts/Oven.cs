@@ -180,12 +180,17 @@ public class Oven : MonoBehaviour
     void EndOven()
     {
         CurrentOvenStatus = OvenStatus.Finished;
-        // ==> remove drip particles
-        var particle = currentObject.GetComponentInChildren<DripParticle>();
 
-        if (particle)
+        KinematicObject kinematic = currentObject.GetComponent<KinematicObject>();
+        if (kinematic)
         {
-            Destroy(particle);
+            kinematic.isSuccesfullyPainted = true;
+        }
+        var obj = currentObject.GetChild(0);
+
+        if (obj)
+        {
+            Destroy(obj.gameObject);
         }
     }
 

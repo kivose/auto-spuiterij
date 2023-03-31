@@ -12,6 +12,8 @@ public class KinematicObject : BasePickUp
 
     public Vector3 targetSnapEulerAngles;
 
+    public bool isSuccesfullyPainted;
+    public bool complete;
     CurrentOrderManager com;
     [System.Serializable]
     public struct SnapObjects
@@ -23,7 +25,7 @@ public class KinematicObject : BasePickUp
     }
     protected override void Start()
     {
-        CurrentOrderManager = FindObjectOfType<CurrentOrderManager>();
+        com = FindObjectOfType<CurrentOrderManager>();
         base.Start();
         rb = GetComponent<Rigidbody>();
 
@@ -56,9 +58,18 @@ public class KinematicObject : BasePickUp
             {
                 if (target.transform.name == "Oven Pivot")
                 {
-                    var filter = target.transform.GetComponent<MeshFilter>();
-                    if()
-                    transform.SetPositionAndRotation(target.transform.position, Quaternion.Euler(target.snapEulerAngles));
+                    var filter = transform.GetComponent<MeshFilter>();
+                    if(OrderObject.TryGetTargetColorOfObject(transform, out Color result))
+                    {
+                        if (com.CalculateColorPercentage(filter.mesh.colors, result) >= 100)
+                        {
+                            transform.SetPositionAndRotation(target.transform.position, Quaternion.Euler(target.snapEulerAngles));
+
+                            target.OnSnapEvent.Invoke();
+                            rb.isKinematic = target.kinematicAfterSnap;
+                            return;
+                        }
+                    }
                     rb.isKinematic = target.kinematicAfterSnap;
                     target.OnSnapEvent.Invoke();
                     return;
@@ -67,6 +78,11 @@ public class KinematicObject : BasePickUp
         }
 
         rb.isKinematic = false;
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 
     public override void OnPickUp()

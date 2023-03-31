@@ -13,6 +13,11 @@ public class CurrentOrderManager : MonoBehaviour
 
     public Transform mainCar;
 
+    private void Update()
+    {
+        
+    }
+
     private void OnEnable()
     {
         InitializeOrderItems();
@@ -68,12 +73,23 @@ public class CurrentOrderManager : MonoBehaviour
     {
         for (int i = 0; i < carObjects.Count; i++)
         {
+            if (activeCurrentOrders[i].completed) continue;
+
             float colorPercentage = CalculateColorPercentage(carObjects[i].filter.sharedMesh.colors, OrderObject.CurrentOrder.orderProducts[i].carPartColor);
             if(activeCurrentOrders[i].carObject == null)
             {
                 activeCurrentOrders[i].carObject = carObjects[i].transform;
                 activeCurrentOrders[i].mesh = carObjects[i].filter.sharedMesh;
             }
+
+            var kin = activeCurrentOrders[i].carObject.GetComponent<KinematicObject>();
+            if (kin.complete) 
+            {
+                activeCurrentOrders[i].ToggleCompletedObject(true);
+                activeCurrentOrders[i].completed = true;
+                kin.Destroy();
+            }
+
             activeCurrentOrders[i].UpdateOrderItem(colorPercentage);
         }
     }

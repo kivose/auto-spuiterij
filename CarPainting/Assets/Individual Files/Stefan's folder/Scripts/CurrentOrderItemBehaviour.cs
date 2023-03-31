@@ -15,6 +15,12 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
 
     public Transform carObject { get; set; }
     public Mesh mesh { get; set; }
+
+    Color startColor;
+    private void Start()
+    {
+        startColor = colorPercentage.color;
+    }
     public void SetItem(OrderObject.OrderCarParts part)
     {
         carPart = part;
@@ -35,10 +41,17 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
         if(colorPercentage > paintDripTreshold)
         {
             print("Drip start");
-            carObject.GetComponentInChildren<DripParticle>().Initialize(mesh);
+            var particle = carObject.GetComponentInChildren<DripParticle>();
+            if (particle)
+            {
+                particle.Initialize(mesh);
+            }
         }
-        
-        completed = colorPercentage >= 100;
-        completedObject.SetActive(completed);
+
+
+        this.colorPercentage.color = colorPercentage >= 100? Color.green : startColor;
+        ToggleCompletedObject(completed);
     }
+
+    public void ToggleCompletedObject(bool enable) => completedObject.SetActive(enable);
 }

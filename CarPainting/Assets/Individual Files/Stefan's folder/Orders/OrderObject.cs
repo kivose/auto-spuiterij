@@ -23,6 +23,28 @@ public class OrderObject : ScriptableObject
         public Color carPartColor;
         public string carPartColorName;
     }
+    public static bool TryGetTargetColorOfObject(Transform obj, out Color result)
+    {
+        if (CurrentOrder == null)
+        {
+            result = Color.white;
+            return false;
+        }
+        var products = CurrentOrder.orderProducts;
+        for (int i = 0; i < products.Length; i++)
+        {
+            var gameObj = products[i].carPart.CarPartGameObject;
+
+            if (gameObj != null && gameObj.transform == obj)
+            {
+                result = products[i].carPartColor;
+                return true;
+            }
+        }
+
+        result = Color.white;
+        return false;
+    }
 
     public static bool OrderSelected() => CurrentOrder != null;
 
