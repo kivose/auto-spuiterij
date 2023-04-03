@@ -53,5 +53,23 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
         ToggleCompletedObject(completed);
     }
 
+    public void HighlightCarPart()
+    {
+        if (carObject)
+        {
+            Outline outline = carObject.GetComponent<Outline>();
+
+            if (outline)
+            {
+                outline.Highlight();
+                Debug.Log("Highlighting");
+            }
+            else
+                Debug.LogWarning("Outline not found!", gameObject);
+        }
+        else
+            Debug.LogWarning("Car Object not found!", gameObject);
+    }
+
     public void ToggleCompletedObject(bool enable) => completedObject.SetActive(enable);
 }

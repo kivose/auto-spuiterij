@@ -57,6 +57,14 @@ public class Outline : MonoBehaviour {
 
     bool canShow = true ;
 
+    [SerializeField]
+    bool OnlyUseForHighlighting;
+
+    float highlightTimer;
+
+    [SerializeField]
+    float highlightSpeed = 0.75f;
+
   [Serializable]
   private class ListVector3 {
     public List<Vector3> data;
@@ -111,7 +119,7 @@ public class Outline : MonoBehaviour {
 
     private void Start()
     {
-        Destroy(this);
+        // Destroy(this);
     }
     void Awake() {
 
@@ -202,14 +210,26 @@ public class Outline : MonoBehaviour {
             }
         }
 
-        float progress = Mathf.InverseLerp(0, gradientTime, currentGradientTime);
-
-        if (useGradient)
+        var color = OutlineColor;
+        if (OnlyUseForHighlighting)
         {
-            outlineColor = gradient.Evaluate(progress);
+            color = Color.Lerp(color, new Color(color.r, color.g, color.b, 0), highlightTimer);
+            highlightTimer += Time.deltaTime * highlightSpeed;
         }
+        else
+        {
 
-        outlineFillMaterial.SetColor("_OutlineColor", outlineColor);
+            float progress = Mathf.InverseLerp(0, gradientTime, currentGradientTime);
+
+            if (useGradient)
+            {
+                outlineColor = gradient.Evaluate(progress);
+            }
+
+            color = outlineColor;
+        }
+        // Apply properties according to mode
+        outlineFillMaterial.SetColor("_OutlineColor", color);
     }
 
   void OnDisable() {
@@ -356,9 +376,6 @@ public class Outline : MonoBehaviour {
             }
         }
 
-    // Apply properties according to mode
-    outlineFillMaterial.SetColor("_OutlineColor", outlineColor);
-
     switch (outlineMode) {
       case Mode.OutlineAll:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
@@ -391,4 +408,6 @@ public class Outline : MonoBehaviour {
         break;
     }
   }
+
+    public void Highlight() => highlightTimer = 0; 
 }

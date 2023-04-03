@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.17, y: -0.0248}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.11769, y: -0.013867}
+  m_SizeDelta: {x: 76.491, y: 24.189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1846130707576959638
 CanvasRenderer:
@@ -384,8 +384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0179, y: -0.0248}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.02467, y: -0.013867}
+  m_SizeDelta: {x: 184.0209, y: 24.189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1141178166998484675
 CanvasRenderer:
@@ -732,7 +732,6 @@ MonoBehaviour:
     carPartColorName: 
   completedObject: {fileID: 3651050079354443148}
   completed: 0
-  carObject: {fileID: 0}
   paintDripTreshold: 50
 --- !u!114 &4773556353512563254
 MonoBehaviour:
@@ -780,7 +779,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2131027828996549046}
         m_TargetAssemblyTypeName: CurrentOrderItemBehaviour, Assembly-CSharp
-        m_MethodName: FlashCarPart
+        m_MethodName: HighlightCarPart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1235,8 +1234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0604, y: -0.0248}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.072555, y: -0.013867}
+  m_SizeDelta: {x: 171.31, y: 24.189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6900447529027302622
 CanvasRenderer:
@@ -1563,8 +1562,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0812, y: -0.0248}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.073292, y: -0.013867}
+  m_SizeDelta: {x: 181.32, y: 24.189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2563639097318355195
 CanvasRenderer:
