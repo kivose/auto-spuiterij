@@ -223,12 +223,10 @@ public class SprayPainter : BasePickUp
     #region Mesh Instantiation
     //Dictionary<Material, Material> dict = new Dictionary<Material, Material>();
 
+    // ==> Cloned een mesh op start, waneer de game stopt in editor, wordt de mesh gereset
     Mesh CloneMesh(Mesh aMat)
     {
-        Mesh mat;
-        //if (!dict.TryGetValue(aMat, out mat))
-            /*dict.Add(aMat,*/ mat = (Mesh)Instantiate(aMat)/*)*/;
-        return mat;
+        return Instantiate(aMat);
     }
 
     void Awake()
@@ -236,7 +234,7 @@ public class SprayPainter : BasePickUp
         MeshFilter[] filters = FindObjectsOfType<MeshFilter>();
         for (int i = 0; i < filters.Length; i++)
         {
-            if (filters[i].gameObject.layer != LayerMask.NameToLayer("Paintable")) continue;
+            if (filters[i].gameObject.layer != LayerMask.NameToLayer("Paintable")) continue; // ==> Verander paintable naar de naam van je paint layer
 
             var mesh = filters[i].sharedMesh;
 

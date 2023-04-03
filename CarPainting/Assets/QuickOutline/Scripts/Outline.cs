@@ -109,7 +109,11 @@ public class Outline : MonoBehaviour {
 
   private bool needsUpdate;
 
-  void Awake() {
+    private void Start()
+    {
+        Destroy(this);
+    }
+    void Awake() {
 
         if (outlineWhenInteractable && interactable == null)
             interactable = GetComponent<XRGrabInteractable>();
