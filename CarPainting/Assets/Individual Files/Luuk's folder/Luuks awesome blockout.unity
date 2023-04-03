@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 9d714c0308a07c84292ca36753ec277c, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f531e09e2ad2fb440b4eed7605863143, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0007787092, g: 0.0041236565, b: 0.019990839, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8445,13 +8445,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.9907e-41, y: 6e-44, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -25985,6 +25985,84 @@ PrefabInstance:
       propertyPath: targetObjects.Array.data[0].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3469287838413502336}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 3994299515686025384, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.data[1].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3469287838413502336}
+    - target: {fileID: 3994299515686025384, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.data[0].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994299515686025384, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.data[1].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994299515686025384, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.data[0].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDropItemOnOven
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994299515686025384, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.data[1].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDropItemOnOven
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994299515686025384, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.data[0].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Oven, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994299515686025384, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.data[1].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Oven, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994299515686025384, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.data[0].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994299515686025384, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.data[1].OnSnapEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256110882423976014, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020985337669603583, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357773299621018516, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ed6705421df93247ababcac6ac51cc9, type: 2}
+    - target: {fileID: 5523028780352750626, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789441564495926053, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789441564495926053, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
+        type: 3}
+      propertyPath: targetObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     - target: {fileID: 5789441564495926053, guid: fbaebe5caf5ec564d86bce0f2439ff8d,
         type: 3}
       propertyPath: targetObjects.Array.data[0].transform
