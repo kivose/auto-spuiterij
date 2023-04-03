@@ -892,6 +892,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 406485507, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7086337239505099266, guid: f63586c59bc20084a8e7fd053fd486a0,
+        type: 3}
+    - target: {fileID: 406485507, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 406485507, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -904,6 +913,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 524765787, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3523086865685130042, guid: f63586c59bc20084a8e7fd053fd486a0,
+        type: 3}
+    - target: {fileID: 524765787, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524765787, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -913,6 +931,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 806122868, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 943686696, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1455679568253369586, guid: f63586c59bc20084a8e7fd053fd486a0,
+        type: 3}
+    - target: {fileID: 943686696, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
+      propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 943686696, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
@@ -946,8 +973,12 @@ PrefabInstance:
     - target: {fileID: 1537053535, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -5861785154512805260, guid: 18358ed02eef38940ad9fb06909e0a84,
+      objectReference: {fileID: 639141466440078883, guid: f63586c59bc20084a8e7fd053fd486a0,
         type: 3}
+    - target: {fileID: 1537053535, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1537053535, guid: fe6a638973f786b43b0386aeca58f7d8, type: 3}
       propertyPath: m_IsTrigger
       value: 0

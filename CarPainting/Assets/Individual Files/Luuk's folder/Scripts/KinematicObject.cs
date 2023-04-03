@@ -88,18 +88,12 @@ public class KinematicObject : BasePickUp
     public override void OnPickUp()
     {
         base.OnPickUp();
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].enabled = false;
-        }
+        EnableColliders(false);
     }
     public override void OnDrop()
     {
         base.OnDrop();
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].enabled = true;    
-        }
+        EnableColliders(true);
     }
 }
  

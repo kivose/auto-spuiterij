@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -12,6 +13,7 @@ public class BasePickUp : MonoBehaviour
     [Tooltip("Boolean that determinse if this gameObject is picked up")]
     public bool pickedUp;
 
+    
     protected virtual void Start()
     {
         grab = GetComponent<XRGrabInteractable>();
@@ -20,6 +22,7 @@ public class BasePickUp : MonoBehaviour
 
         colliders = GetComponents<Collider>();
     }
+
     /// <summary>
     /// Function called whenever the object is picked up
     /// </summary>
@@ -34,5 +37,13 @@ public class BasePickUp : MonoBehaviour
     public virtual void OnDrop()
     {
         pickedUp = false;
+    }
+
+    public void EnableColliders(bool value)
+    {
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = value;
+        }
     }
 }
