@@ -6,7 +6,7 @@ using TMPro;
 public class OpenOrdersManager : MonoBehaviour
 {
     [SerializeField]
-    List<OrderObject> allOrders;
+    public List<OrderObject> allOrders;
 
     public OrderObject currentOrder;
     private int m_currentOrderIndex;

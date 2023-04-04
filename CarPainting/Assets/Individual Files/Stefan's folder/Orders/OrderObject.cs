@@ -8,6 +8,8 @@ public class OrderObject : ScriptableObject
 {
     public static OrderObject CurrentOrder;
 
+    public bool completed;
+
     public string personName;
 
     [TextArea(5,15)]

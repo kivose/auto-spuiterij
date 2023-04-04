@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 using UnityEngine.UI;
+using TMPro;
 public class Options : MonoBehaviour
 {
     public ActionBasedControllerManager leftHand, rightHand;
@@ -14,7 +15,10 @@ public class Options : MonoBehaviour
     public float camOffset;
 
     [SerializeField]
-    Slider heightSlider;
+    Slider heightSlider, audioSlider;
+
+    [SerializeField]
+    TextMeshProUGUI heightValue, audioValue;
 
     [SerializeField]
     Toggle moveOrTeleportMovement, smoothOrSnapTurning;
@@ -25,33 +29,43 @@ public class Options : MonoBehaviour
     }
     public void ApplyValues()
     {
+        AudioListener.volume = audioSlider.value;
+        audioValue.text = audioSlider.value.ToString("F1");
+
         leftHand.smoothMotionEnabled = !moveOrTeleportMovement.isOn;
 
         rightHand.smoothTurnEnabled = !smoothOrSnapTurning.isOn;
 
         camOffset = heightSlider.value;
+        heightValue.text = heightSlider.value.ToString("F1");
 
         offsetTransform.localPosition = new (offsetTransform.localPosition.x, camOffset, offsetTransform.localPosition.z);
     }
     public void ResetValues()
     {
+        audioSlider.SetValueWithoutNotify(0.5f);
         moveOrTeleportMovement.isOn = false;
         leftHand.smoothMotionEnabled = true;
 
         smoothOrSnapTurning.isOn = false;
         rightHand.smoothTurnEnabled = true;
 
-        heightSlider.value = 0;
+        heightSlider.SetValueWithoutNotify(0);
         camOffset = 0;
+
+        ApplyValues();
     }
     public void GetValues()
     {
-        moveOrTeleportMovement.isOn = !leftHand.smoothMotionEnabled;
+        audioSlider.SetValueWithoutNotify(AudioListener.volume);
+        moveOrTeleportMovement.isOn = !leftHand.smoothMotionEnabled;    
 
         smoothOrSnapTurning.isOn = !rightHand.smoothTurnEnabled;
 
         camOffset = offsetTransform.localPosition.y;
 
-        heightSlider.value = camOffset;
+        heightSlider.SetValueWithoutNotify(camOffset);
+
+        ApplyValues();
     }
 }

@@ -13,8 +13,8 @@ public class ColorChanger : MonoBehaviour
 
     public Image[] images;
 
-    ImageData[] imageDatas;
-    struct ImageData
+    public ImageData[] imageDatas;
+    public struct ImageData
     {
         public Color color;
         public float currentTimer;

@@ -13,9 +13,15 @@ public class AdditionalSlider : MonoBehaviour
         Image[] imgs = new Image[bgParent.images.Length];
         for (int i = 0; i < bgParent.images.Length; i++)
         {
-            imgs[i] = Instantiate(bgParent.transform.GetChild(i), fillParent.transform).GetComponent<Image>();
+            imgs[i] = Instantiate(bgParent.transform.GetChild(i).gameObject, fillParent.transform).GetComponent<Image>();
         }
         fillParent.images = imgs;
+        fillParent.imageDatas = new ColorChanger.ImageData[bgParent.images.Length];
+        for (int i = 0; i < fillParent.imageDatas.Length; i++)
+        {
+            fillParent.imageDatas[i].baseScale = Vector3.one;
+            fillParent.imageDatas[i].targetScale = Vector3.one;
+        }
     }
 
     // Update is called once per frame

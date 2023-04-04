@@ -13,6 +13,10 @@ public class CurrentOrderManager : MonoBehaviour
 
     public Transform mainCar;
 
+    public FinishedOrdersManager finishedOrdersManager;
+    public OpenOrdersManager openOrdersManager;
+
+    public UIButton finishedButton;
     private void Update()
     {
         
@@ -71,9 +75,12 @@ public class CurrentOrderManager : MonoBehaviour
     public List<CarObjectData> carObjects = new List<CarObjectData>();
     void CheckOrderCompletion()
     {
+        bool completed = true;
         for (int i = 0; i < carObjects.Count; i++)
         {
             if (activeCurrentOrders[i].completed) continue;
+
+            completed = false;
 
             float colorPercentage = CalculateColorPercentage(carObjects[i].filter.sharedMesh.colors, OrderObject.CurrentOrder.orderProducts[i].carPartColor);
             if(activeCurrentOrders[i].carObject == null)
@@ -92,6 +99,23 @@ public class CurrentOrderManager : MonoBehaviour
 
             activeCurrentOrders[i].UpdateOrderItem(colorPercentage);
         }
+
+        if (completed)
+        {
+            //Show Finish Order Button
+        }
+    }
+    
+    /// <summary>
+    /// Functie word geroepen waneer de speler op de finish order knop drukt
+    /// </summary>
+    public void OnFinishOrder()
+    {
+        finishedOrdersManager.finishedOrders.Add(OrderObject.CurrentOrder);
+        openOrdersManager.allOrders.Remove(OrderObject.CurrentOrder);
+        OrderObject.CurrentOrder.completed = true;
+        OrderObject.CurrentOrder = null;
+        finishedButton.onClick.Invoke();
     }
 
     public void OnOrderChanged()
