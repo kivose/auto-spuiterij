@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6bbee2a270d8b40a7c0a374d743464, type: 3}
+  m_Name: Order 3
+  m_EditorClassIdentifier: 
+  personName: Cornelius Robertson Ovenbakker de 3e JR
+  description: Moet een mooie auto hebben zodat ik weg kan gaan van mijn famillie,
+    kan jij dat regelen voor mij?
+  orderProducts:
+  - amount: 1
+    carPart: {fileID: 11400000, guid: e5532516b84efae489c115d0cbfa745a, type: 2}
+    carPartColor: {r: 0.5377358, g: 0, b: 0, a: 1}
+    carPartColorName: dark red
+  - amount: 1
+    carPart: {fileID: 11400000, guid: 1ff340a636c6b7444b3ae53e328b8013, type: 2}
+    carPartColor: {r: 0.5377358, g: 0, b: 0, a: 1}
+    carPartColorName: dark red
+  - amount: 1
+    carPart: {fileID: 11400000, guid: e57656acf209a2e4c921d4d27722030e, type: 2}
+    carPartColor: {r: 0.5377358, g: 0, b: 0, a: 1}
+    carPartColorName: dark red
+  - amount: 1
+    carPart: {fileID: 11400000, guid: 2a127c40c5beb2a4489a5b023c674a71, type: 2}
+    carPartColor: {r: 0.5377358, g: 0, b: 0, a: 1}
+    carPartColorName: dark red
+  - amount: 1
+    carPart: {fileID: 11400000, guid: 9956065d34a7ff84db4973af4c20cc6a, type: 2}
+    carPartColor: {r: 0, g: 0, b: 0, a: 1}
+    carPartColorName: black
+  - amount: 1
+    carPart: {fileID: 11400000, guid: 0a2cf6b131c0d4b41908b744f64f8fc7, type: 2}
+    carPartColor: {r: 0, g: 0, b: 0, a: 1}
+    carPartColorName: black
+  - amount: 1
+    carPart: {fileID: 11400000, guid: 7671e9e0f701f8c4a96bfe19aae5d891, type: 2}
+    carPartColor: {r: 1, g: 0, b: 0, a: 1}
+    carPartColorName: red
+  - amount: 1
+    carPart: {fileID: 11400000, guid: 05997682d37a3014dbee49b031c5c51f, type: 2}
+    carPartColor: {r: 1, g: 0, b: 0, a: 1}
+    carPartColorName: red

@@ -12,6 +12,11 @@ public class HUDManager : MonoBehaviour
     {
         OnMainMenuButtonClicked(0);
     }
+
+    //private void Update()
+    //{
+    //    print(OrderObject.CurrentOrder.ToString());
+    //}
     public async void OnMainMenuButtonClicked(int index)
     {
 

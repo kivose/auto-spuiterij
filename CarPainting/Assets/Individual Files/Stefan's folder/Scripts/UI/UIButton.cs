@@ -138,7 +138,7 @@ public class UIButton :
                 targetColor1 = colorsModule.clickedColor1;
                 targetColor2 = colorsModule.clickedColor2;
 
-                onClick?.Invoke();
+                onClick?.Invoke();  
 
                 Clicked = false;
             }
@@ -221,7 +221,6 @@ public class UIButton :
     {
         if (data.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("Click");
             selectedButton = this;
 
             debug.clicked = true;
@@ -236,7 +235,6 @@ public class UIButton :
     /// <param name="data"></param>
     public void OnSelect(BaseEventData data)
     {
-        Debug.Log("Select");
     }
 
     /// <summary>
@@ -245,7 +243,6 @@ public class UIButton :
     /// <param name="data"></param>
     public void OnDeselect(BaseEventData data)
     {
-        Debug.Log("Select");
     }
 
     /// <summary>
@@ -256,7 +253,6 @@ public class UIButton :
     {
         if (data.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("Pointer Up");
             Clicked = true;
         }
     }
@@ -267,7 +263,7 @@ public class UIButton :
     /// <param name="data"></param>
     public void OnPointerDown(PointerEventData data)
     {
-        Debug.Log("Pointer down");
+
     }
 
     /// <summary>
@@ -276,7 +272,6 @@ public class UIButton :
     /// <param name="data"></param>
     public void OnPointerEnter(PointerEventData data)
     {
-        Debug.Log("Pointer enter");
         debug.hovered = true;
     }
 
@@ -286,7 +281,6 @@ public class UIButton :
     /// <param name="data"></param>
     public void OnPointerExit(PointerEventData data)
     {
-        Debug.Log("Pointer exit");
         debug.hovered = false;
     }
 

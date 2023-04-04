@@ -53,6 +53,7 @@ public class OpenOrdersManager : MonoBehaviour
 
     public void ApplyCurrentOrder()
     {
+        print("current Order Applied");
         OrderObject.CurrentOrder = currentOrder;
         currentOrderManager.InitializeOrderItems();
         currentOrderManager.OnOrderChanged();

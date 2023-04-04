@@ -43,6 +43,10 @@ public class FinishedOrdersManager : MonoBehaviour
     List<GameObject> activeCarParts = new();
 
 
+    private void OnEnable()
+    {
+        SelectedOrderIndex = 0;
+    }
     void EnableFinishedOrdersText(bool value)
     {
         noOrdersText.gameObject.SetActive(value);

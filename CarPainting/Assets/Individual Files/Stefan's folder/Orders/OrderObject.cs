@@ -6,7 +6,19 @@ using System.Text;
 [CreateAssetMenu(fileName = "New Order", menuName = "Order")]
 public class OrderObject : ScriptableObject
 {
-    public static OrderObject CurrentOrder;
+    static OrderObject obj;
+    public static OrderObject CurrentOrder
+    {
+        get
+        {
+            return obj;
+        }
+        set
+        {
+            obj = value;
+            //Debug.Log(obj.ToString());
+        }
+    }
 
     public bool completed;
 

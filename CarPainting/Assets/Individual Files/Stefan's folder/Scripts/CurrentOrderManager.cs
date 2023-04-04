@@ -8,10 +8,12 @@ public class CurrentOrderManager : MonoBehaviour
     public TextMeshProUGUI orderName, Description, noOrders;
 
     public GameObject orderItemsPrefab;
+
+    public GameObject finishButton;
     public Transform orderItemsParent;
     List<CurrentOrderItemBehaviour> activeCurrentOrders = new();
 
-    public Transform mainCar;
+    public Transform baseCar;
 
     public FinishedOrdersManager finishedOrdersManager;
     public OpenOrdersManager openOrdersManager;
@@ -28,6 +30,7 @@ public class CurrentOrderManager : MonoBehaviour
     }
     public void InitializeOrderItems()
     {
+        print("Init Order");
         for (int i = 0; i < activeCurrentOrders.Count; i++)
         {
             Destroy(activeCurrentOrders[i].gameObject);
@@ -75,6 +78,8 @@ public class CurrentOrderManager : MonoBehaviour
     public List<CarObjectData> carObjects = new List<CarObjectData>();
     void CheckOrderCompletion()
     {
+        if (OrderObject.CurrentOrder == null) return;
+
         bool completed = true;
         for (int i = 0; i < carObjects.Count; i++)
         {
@@ -102,7 +107,7 @@ public class CurrentOrderManager : MonoBehaviour
 
         if (completed)
         {
-            //Show Finish Order Button
+            finishButton.SetActive(true);
         }
     }
     
@@ -113,9 +118,12 @@ public class CurrentOrderManager : MonoBehaviour
     {
         finishedOrdersManager.finishedOrders.Add(OrderObject.CurrentOrder);
         openOrdersManager.allOrders.Remove(OrderObject.CurrentOrder);
+
         OrderObject.CurrentOrder.completed = true;
         OrderObject.CurrentOrder = null;
-        finishedButton.onClick.Invoke();
+        finishedOrdersManager.SelectedOrderIndex = 0;
+
+        InitializeOrderItems();
     }
 
     public void OnOrderChanged()

@@ -30,6 +30,8 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
     public float paintDripTreshold = 60;
     public void UpdateOrderItem(float colorPercentage)
     {
+        if (carObject == null) completed = true;
+
         completedObject.SetActive(completed);
 
         amountText.text = carPart.amount.ToString();
