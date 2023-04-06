@@ -13,12 +13,16 @@ public class CurrentOrderManager : MonoBehaviour
     public Transform orderItemsParent;
     List<CurrentOrderItemBehaviour> activeCurrentOrders = new();
 
-    public Transform baseCar;
+    public GameObject carPrefab;
+    public Transform currentCar;
+
+    public Transform carSpawnPoint;
 
     public FinishedOrdersManager finishedOrdersManager;
     public OpenOrdersManager openOrdersManager;
 
     public UIButton finishedButton;
+    public bool completed;
     private void Update()
     {
         
@@ -61,6 +65,8 @@ public class CurrentOrderManager : MonoBehaviour
                 activeCurrentOrders.Add(item);
             }
         }
+
+        CheckOrderCompletion();
     }
 
     private void FixedUpdate()
@@ -78,9 +84,9 @@ public class CurrentOrderManager : MonoBehaviour
     public List<CarObjectData> carObjects = new List<CarObjectData>();
     void CheckOrderCompletion()
     {
+        finishButton.SetActive(false);
+        completed = true;
         if (OrderObject.CurrentOrder == null) return;
-
-        bool completed = true;
         for (int i = 0; i < carObjects.Count; i++)
         {
             if (activeCurrentOrders[i].completed) continue;
@@ -124,10 +130,18 @@ public class CurrentOrderManager : MonoBehaviour
         finishedOrdersManager.SelectedOrderIndex = 0;
 
         InitializeOrderItems();
+        completed = false;
     }
 
-    public void OnOrderChanged()
+    public void OnOrderChanged(int index)
     {
+        completed = false;
+
+        if (currentCar)
+            Destroy(currentCar.gameObject);
+
+        currentCar = Instantiate(carPrefab, carSpawnPoint.position, Quaternion.identity).transform;
+
         carObjects.Clear();
 
         carObjects = FindCarObjects();

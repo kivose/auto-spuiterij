@@ -25,6 +25,9 @@ public class FinishedOrdersManager : MonoBehaviour
                 value = Mathf.Clamp(value, 0, Mathf.Max(finishedOrders.Count - 1, 0));
 
                 m_SelectedOrderIndex = value;
+
+                if(finishedOrders.Count == 0) return;
+
                 selectedOrder = finishedOrders[m_SelectedOrderIndex];
 
                 OnSelectedOrderChanged();
@@ -45,7 +48,7 @@ public class FinishedOrdersManager : MonoBehaviour
 
     private void OnEnable()
     {
-        SelectedOrderIndex = 0;
+        SelectedOrderIndex = finishedOrders.Count == 0? 5 : 0;
     }
     void EnableFinishedOrdersText(bool value)
     {

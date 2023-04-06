@@ -24,7 +24,6 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
     public void SetItem(OrderObject.OrderCarParts part)
     {
         carPart = part;
-        UpdateOrderItem(0);
     }
 
     public float paintDripTreshold = 60;
