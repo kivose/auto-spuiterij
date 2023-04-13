@@ -140,7 +140,7 @@ public class CurrentOrderManager : MonoBehaviour
         if (currentCar)
             Destroy(currentCar.gameObject);
 
-        currentCar = Instantiate(carPrefab, carSpawnPoint.position, Quaternion.identity).transform;
+        currentCar = Instantiate(carPrefab, carSpawnPoint.position, carSpawnPoint.rotation).transform;
 
         carObjects.Clear();
 
