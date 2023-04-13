@@ -60,7 +60,7 @@ public class Outline : MonoBehaviour {
     [SerializeField]
     bool OnlyUseForHighlighting;
 
-    float highlightTimer;
+    float highlightTimer = 1;
 
     [SerializeField]
     float highlightSpeed = 0.75f;

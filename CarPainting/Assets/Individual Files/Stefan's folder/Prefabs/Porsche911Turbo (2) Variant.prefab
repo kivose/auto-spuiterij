@@ -266,8 +266,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0
 --- !u!1 &781381399960134805
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,8 +553,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0
 --- !u!1 &1104143074087667094
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,8 +841,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0
 --- !u!1 &1106069277140989582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,8 +1226,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0
 --- !u!1 &1270030650533165551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,8 +1807,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0
 --- !u!1 &2226724775191233499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,8 +2094,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0
 --- !u!1 &2635689052620170482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,8 +2716,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0
 --- !u!1 &5394588737410323701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,8 +3003,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0
 --- !u!1 &5991716182979170462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,8 +3610,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0
 --- !u!1 &8699295708467705446
 GameObject:
   m_ObjectHideFlags: 0
@@ -3810,5 +3981,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182d71eec112454388798d4aa4fb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  colliders: []
+  pickedUp: 0
+  targetObjects:
+  - snapPointName: Oven Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
+  - snapPointName: Dolly Pivot
+    m_transform: {fileID: 0}
+    snapEulerAngles: {x: 0, y: 0, z: 0}
+    OnSnapEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    kinematicAfterSnap: 0
   distanceThreshold: 2
+  targetSnapEulerAngles: {x: 0, y: 0, z: 0}
+  isSuccesfullyPainted: 0
+  complete: 0

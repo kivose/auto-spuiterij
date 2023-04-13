@@ -36,7 +36,8 @@ public class CarPartObject : ScriptableObject
         {
             if(carPartGameObject == null)
             {
-                carPartGameObject = GameObject.Find(gameObjectName);
+                if(CurrentOrderManager.currentCar != null)
+                    carPartGameObject = CurrentOrderManager.FindChildByName(CurrentOrderManager.currentCar, gameObjectName);
             }
 
             return carPartGameObject;

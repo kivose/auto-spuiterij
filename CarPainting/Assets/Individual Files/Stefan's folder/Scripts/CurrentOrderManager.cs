@@ -5,6 +5,26 @@ using TMPro;
 
 public class CurrentOrderManager : MonoBehaviour
 {
+    public static GameObject currentCar;
+
+    #region Car object finding
+    public static GameObject FindChildByName(GameObject parent, string childName)
+    {
+        Transform[] children = parent.GetComponentsInChildren<Transform>(true); // Get all children including inactive ones
+
+        // Loop through all the children and find the one with the matching name
+        for (int i = 0; i < children.Length; i++)
+        {
+            if (children[i].name == childName)
+            {
+                return children[i].gameObject;
+            }
+        }
+
+        // If no child GameObject is found with the given name, return null
+        return null;
+    }
+    #endregion
     public TextMeshProUGUI orderName, Description, noOrders;
 
     public GameObject orderItemsPrefab;
@@ -14,7 +34,6 @@ public class CurrentOrderManager : MonoBehaviour
     List<CurrentOrderItemBehaviour> activeCurrentOrders = new();
 
     public GameObject carPrefab;
-    public Transform currentCar;
 
     public Transform carSpawnPoint;
 
@@ -137,16 +156,29 @@ public class CurrentOrderManager : MonoBehaviour
     {
         completed = false;
 
-        if (currentCar)
-            Destroy(currentCar.gameObject);
-
-        currentCar = Instantiate(carPrefab, carSpawnPoint.position, carSpawnPoint.rotation).transform;
-
+        SpawnNewCar();
         carObjects.Clear();
 
         carObjects = FindCarObjects();
     }
 
+    void SpawnNewCar()
+    {
+        if (currentCar)
+            Destroy(currentCar.gameObject);
+
+        currentCar = Instantiate(carPrefab, carSpawnPoint.position, carSpawnPoint.rotation);
+
+        var filters = currentCar.transform.GetComponentsInChildren<MeshFilter>();
+
+        foreach (var filter in filters)
+        {
+            for (int i = 0; i < filter.mesh.colors.Length; i++)
+            {
+                filter.mesh.colors[i] = Color.white;
+            }
+        }
+    }
     public List<CarObjectData> FindCarObjects()
     {
         List<CarObjectData> objects = new();

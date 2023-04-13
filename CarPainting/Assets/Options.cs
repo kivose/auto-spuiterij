@@ -29,6 +29,7 @@ public class Options : MonoBehaviour
     }
     public void ApplyValues()
     {
+        print("ohneee 1");
         AudioListener.volume = audioSlider.value;
         audioValue.text = audioSlider.value.ToString("F1");
 
@@ -43,6 +44,7 @@ public class Options : MonoBehaviour
     }
     public void ResetValues()
     {
+        print("ohneee 2");
         audioSlider.SetValueWithoutNotify(0.5f);
         moveOrTeleportMovement.isOn = false;
         leftHand.smoothMotionEnabled = true;
@@ -57,6 +59,7 @@ public class Options : MonoBehaviour
     }
     public void GetValues()
     {
+        print("ohneee 3");
         audioSlider.SetValueWithoutNotify(AudioListener.volume);
         moveOrTeleportMovement.isOn = !leftHand.smoothMotionEnabled;    
 

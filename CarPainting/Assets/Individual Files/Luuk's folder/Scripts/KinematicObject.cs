@@ -18,7 +18,26 @@ public class KinematicObject : BasePickUp
     [System.Serializable]
     public struct SnapObjects
     {
-        public Transform transform;
+        public string snapPointName;
+        public Transform m_transform;
+        public Transform Transform
+        {
+            get
+            {
+                if(m_transform == null)
+                {
+                    var temp = GameObject.Find(snapPointName);
+                    
+                    if(temp)
+                        m_transform = temp.transform;
+                }
+                return m_transform;
+            }
+            set
+            {
+                m_transform = value;
+            }
+        }
         public Vector3 snapEulerAngles;
         public UnityEngine.Events.UnityEvent OnSnapEvent;
         public bool kinematicAfterSnap;
@@ -36,8 +55,6 @@ public class KinematicObject : BasePickUp
     public async void CheckSnap()
     {
         await System.Threading.Tasks.Task.Delay(10);
-
-        OnDrop();
         // ==> Check if object can snap to base position
 
         if (Vector3.Distance(transform.position, startPos) < distanceThreshold)
@@ -52,18 +69,20 @@ public class KinematicObject : BasePickUp
         for (int i = 0; i < targetObjects.Length; i++)
         {
             var target = targetObjects[i];
-            float dst = Vector3.Distance(target.transform.position, transform.position);
+
+            if (target.Transform == null) continue;
+            float dst = Vector3.Distance(target.Transform.position, transform.position);
 
             if(dst <= distanceThreshold)
             {
-                if (target.transform.name == "Oven Pivot")
+                if (target.Transform.name == "Oven Pivot")
                 {
                     var filter = transform.GetComponent<MeshFilter>();
                     if(OrderObject.TryGetTargetColorOfObject(transform, out Color result))
                     {
                         if (com.CalculateColorPercentage(filter.mesh.colors, result) >= 100)
                         {
-                            transform.SetPositionAndRotation(target.transform.position, Quaternion.Euler(target.snapEulerAngles));
+                            transform.SetPositionAndRotation(target.Transform.position, Quaternion.Euler(target.snapEulerAngles));
 
                             target.OnSnapEvent.Invoke();
                             rb.isKinematic = target.kinematicAfterSnap;
@@ -87,11 +106,13 @@ public class KinematicObject : BasePickUp
 
     public override void OnPickUp()
     {
+        print("pcikup");
         base.OnPickUp();
         EnableColliders(false);
     }
     public override void OnDrop()
     {
+        print("Drop");
         base.OnDrop();
         EnableColliders(true);
     }

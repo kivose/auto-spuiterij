@@ -19,6 +19,7 @@ public class Oven : MonoBehaviour
 
     public float CurrentTimer;
     public bool IsOn;
+    public bool baked;
 
     public bool IsOvenDoorOpen
     {
@@ -81,7 +82,7 @@ public class Oven : MonoBehaviour
         {
             var position = currentObject.position;
 
-            if(position != previousItemPosition)
+            if(position != previousItemPosition && baked)
             {
                 OnItemPickedUp();
             }
@@ -92,14 +93,15 @@ public class Oven : MonoBehaviour
         {
             CurrentTimer -= Time.deltaTime * ovenSpeed;
 
-            time.text = ToTime(CurrentTimer);
 
             CurrentOvenStatus = OvenStatus.Cooking;
 
+            time.text = ToTime(CurrentTimer);
             if (CurrentTimer <= 0)
             {
                 EndOven();
                 IsOn = false;
+                time.text = "0:00";
             }
 
         }
@@ -148,6 +150,7 @@ public class Oven : MonoBehaviour
 
         if (closest)
         {
+            baked = false;  
             currentObject = closest.transform;
             CurrentOvenStatus = OvenStatus.Loaded;
             previousItemPosition = currentObject.position;
@@ -179,6 +182,7 @@ public class Oven : MonoBehaviour
 
     void EndOven()
     {
+        baked = true;
         CurrentOvenStatus = OvenStatus.Finished;
 
         KinematicObject kinematic = currentObject.GetComponent<KinematicObject>();

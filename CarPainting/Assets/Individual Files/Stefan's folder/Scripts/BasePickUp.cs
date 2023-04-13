@@ -9,7 +9,7 @@ public class BasePickUp : MonoBehaviour
 {
     XRGrabInteractable grab;
 
-    protected Collider[] colliders;
+    public Collider[] colliders;
     [Tooltip("Boolean that determinse if this gameObject is picked up")]
     public bool pickedUp;
 
@@ -19,8 +19,6 @@ public class BasePickUp : MonoBehaviour
         grab = GetComponent<XRGrabInteractable>();
         grab.selectEntered.AddListener(delegate { OnPickUp(); });
         grab.selectExited.AddListener(delegate { OnDrop(); });
-
-        colliders = GetComponents<Collider>();
     }
 
     /// <summary>
