@@ -38,4 +38,6 @@ public class HUDManager : MonoBehaviour
             await Task.Yield();
         }
     }
+
+    public void Quit() => Application.Quit();
 }
