@@ -216,7 +216,10 @@ public class CurrentOrderManager : MonoBehaviour
             total += CompareColors(vertexColors[i], targetColor);
             totalIterations = i;
         }
-        return Mathf.Min(100,Mathf.Abs((total / totalIterations -1) * 1.05f));
+        float percentage = Mathf.Abs((total / totalIterations - 1) * 1.05f);
+
+        if (float.IsNaN(percentage)) percentage = 0;
+        return Mathf.Min(100,percentage);
     }
 
     public float CompareColors(Color color1, Color color2)

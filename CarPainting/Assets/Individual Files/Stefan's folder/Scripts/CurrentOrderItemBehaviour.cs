@@ -19,7 +19,7 @@ public class CurrentOrderItemBehaviour : MonoBehaviour
     Color startColor;
     private void Start()
     {
-        startColor = colorPercentage.color;
+        startColor = new Color(0.5f,1f,1f,1f);
     }
     public void SetItem(OrderObject.OrderCarParts part)
     {
