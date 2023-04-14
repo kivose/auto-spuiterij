@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class SprayPainter : BasePickUp
 {
     public LayerMask whatIsPaintable;
@@ -10,6 +10,8 @@ public class SprayPainter : BasePickUp
     public Transform origin;
     public List<PaintableObject> paintableObjects = new List<PaintableObject> ();
 
+    public ParticleSystem particle;
+    public Transform paticleTargetPos;
     Collider collider;
     Rigidbody rigidbody;
 
@@ -19,6 +21,21 @@ public class SprayPainter : BasePickUp
     {
         collider = gameObject.GetComponent<Collider> ();
         rigidbody = gameObject.GetComponent<Rigidbody>();
+    }
+
+    bool spraying = false;
+    public void RegisterTriggerInput(InputAction.CallbackContext kontseks)
+    {
+        if (kontseks.started)
+        {
+            spraying = true;
+            particle.Play();
+        }
+        else if (kontseks.canceled)
+        {
+            spraying = false;
+            particle.Stop();
+        }
     }
 
     public void FixedUpdate()
@@ -60,9 +77,13 @@ public class SprayPainter : BasePickUp
         } */
         #endregion
 
+        var main = particle.main;
+        main.startColor = currentSprayColor;
+
+        particle.transform.SetPositionAndRotation(paticleTargetPos.position, paticleTargetPos.rotation);
         #region New Method
 
-        if (true)//input detection komt nog
+        if (spraying)//input detection komt nog
         {
             // ==> Raycast vanuit de spray painter
             if (Physics.Raycast(origin.position, origin.forward, out RaycastHit hit, 100000f))
@@ -122,6 +143,11 @@ public class SprayPainter : BasePickUp
                 }
                 
             }
+        }
+        else
+        {
+            spraying = false;
+            particle.Stop();
         }
         #endregion
     }
